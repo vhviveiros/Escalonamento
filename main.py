@@ -1,5 +1,16 @@
 from fractions import Fraction
+from random import randint
 
+
+def gerarmatrizaleatoria(numlinhas, numcolunas, varval):
+    aum = []
+    for i in range(numlinhas):
+        aum.append([])
+        for j in range(numcolunas):
+            aum[i].append(randint(-varval, varval))
+            if aum[i][j] == 0:
+                aum[i].insert(j, randint(-varval, varval))
+    return aum
 
 def exibir(aum, numcolunas, l):
     print(2 * numcolunas * "----", "\n")
@@ -68,10 +79,5 @@ def escr(aum):
         exibir(aum, numcolunas, l)
 
 
-aum = [
-    [2, 3, -1, 1],
-    [3, 5, 2, 8],
-    [1, -2, -3, -1]
-]
-
+aum = gerarmatrizaleatoria(3, 4, 10)
 escr(aum)
